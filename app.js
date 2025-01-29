@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const authRouter = require('./routes/auth.js');
+const roleRouter = require('./routes/role.js');
 const connectDB = require('./config/connectDB.js');
 
 connectDB();
@@ -11,6 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
 app.use('/api/auth', authRouter);
+app.use('/api/role', roleRouter);
 
 app.get('/',(req,res)=>{
   return res.status(201).send("welcome tester")
