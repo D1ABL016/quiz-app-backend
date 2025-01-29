@@ -69,7 +69,7 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ["user", "admin"],
+      enum: ["user", "admin" , 'super-admin'],
       default: "user",
     },
     // enrolledCourses: [
@@ -95,6 +95,6 @@ userSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-const user = mongoose.model("User", userSchema);
+const user = mongoose.model("user", userSchema);
 
 module.exports = user;
